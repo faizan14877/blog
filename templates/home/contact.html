@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}contact{% endblock title %}
+{% block activeContact %} active {% endblock activeContact %} 
+
+{% block body %}
+<div class="container">
+    <h3>Contact iCoder</h3>
+    <form method='POST' action='/contact'>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name='name' aria-describedby="name" placeholder="Enter name">
+          </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" name='email' aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="phone" class="form-control" name='phone' id="phone" placeholder="Enter phone number">
+        </div>
+        <div class="form-group">
+            <label for="content">Describe your issue</label>
+            <textarea class="form-control" id="content"  name="content" cols="30" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock body %}
